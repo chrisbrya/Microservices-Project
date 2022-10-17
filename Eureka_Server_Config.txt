@@ -1,0 +1,27 @@
+For the service-registry application
+--------------------------------------
+
+server:
+  port: 8761
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+For the other microservice applications
+----------------------------------------
+
+spring:
+  application:
+    name:   PRODUCT-SERVICE
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
